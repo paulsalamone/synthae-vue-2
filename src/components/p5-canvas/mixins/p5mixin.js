@@ -3,12 +3,7 @@ export default {
         return {
         }
     },
-    mounted() {
-        this.initiateP5()
-    },
-    beforeUnmount() {
-        this.unmountP5()
-    },
+
     methods: {
         initiateP5() {
             const scriptP5 = document.createElement('script')
