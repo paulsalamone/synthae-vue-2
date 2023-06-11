@@ -33,6 +33,8 @@ export default {
     this.symages = symages
     this.initiateP5()
     this.initiateMidi()
+
+    // ASSIGN CONTROLLER ROUTINGS?
   },
   beforeUnmount() {
     this.unmountP5()
@@ -70,6 +72,12 @@ export default {
           } else {
             // RENDER CURRENT
 
+            // animation
+            if (this.active[i].animation && this.active[i].animation[this.active[i].currentFrame]) {
+              console.log('anim')
+              eval(this.active[i].animation[this.active[i].currentFrame])
+            }
+            // static
             eval(this.active[i].code)
 
             // ITERATE

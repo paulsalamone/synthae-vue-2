@@ -5,20 +5,19 @@ export default [
         note: 36,
         frames: 10,
         animation: [
-            { size: 200 },
-            { size: 100 },
-            { size: 50 },
-            { size: 10 },
+            ` p.circle(100,100,2); `,
+            ` p.circle(100,100,10); `,
+            ` p.circle(100,100,20); `,
+            ` p.circle(100,100,30); `,
+            ` p.circle(100,100,50); `,
+            ` p.circle(100,100,70); `,
+            ` p.circle(100,100,100); `,
         ],
-        code: `          
-            p.fill(255, 0, 0);          
-            p.textSize(20);                   
-            p.circle(100,100,100);          
-            `,
-        print: () => {
-            console.log("hallo")
-        }
 
+        code: `          
+            p.fill(255, 0, 0);                     
+             
+            `
     },
     {
         id: 2,
