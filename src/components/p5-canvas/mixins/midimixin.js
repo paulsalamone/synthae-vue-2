@@ -2,6 +2,8 @@ export default {
     data() {
         return {
             incomingNote: 0,
+            incomingVelocity: 0,
+            incomingCC: 0,
             noteTriggered: false
         }
     },
@@ -41,6 +43,7 @@ export default {
                     this.incomingNote = note;
                     this.noteTriggered = !this.noteTriggered;
                     var velocity = event.data[2]; // Extract the velocity
+                    this.incomingVelocity = velocity
 
                     // Log the Note On message to the console
                     console.log(
@@ -56,6 +59,7 @@ export default {
                     var ccNumber = event.data[1]; // Extract the CC number
                     var ccValue = event.data[2]; // Extract the CC value
 
+                    this.incomingCC = ccValue;
                     // Log the Control Change message to the console
                     console.log(
                         "Control Change - Channel:",

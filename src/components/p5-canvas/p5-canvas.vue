@@ -1,8 +1,9 @@
 <template>
   <div class="p5-canvas">
-    {{ symages }}
-    {{ active }}
+    <!-- {{ symages }}
+    {{ active }} -->
     <p>note: {{ incomingNote }}</p>
+    <p>velocity: {{ incomingVelocity }}</p>
     <p>count: {{ masterClock }}</p>
     <div ref="p5Container" id="p5parent"></div>
     <p>{{ insertCode }}</p>
@@ -63,6 +64,8 @@ export default {
       p.draw = () => {
         p.background('black')
 
+        // reset everything:
+        p.strokeWeight(0)
         // LOOP THROUGH AND RENDER
         for (let i = 0; i < this.active.length; i++) {
           this.active[i].print
@@ -72,13 +75,22 @@ export default {
           } else {
             // RENDER CURRENT
 
+            // precode
+            if (this.active[i].precode) {
+              eval(this.active[i].precode)
+            }
+
             // animation
             if (this.active[i].animation && this.active[i].animation[this.active[i].currentFrame]) {
               console.log('anim')
               eval(this.active[i].animation[this.active[i].currentFrame])
             }
-            // static
-            eval(this.active[i].code)
+            // postcode
+            if (this.active[i].postcode) {
+              eval(this.active[i].postcode)
+            }
+            // reset for next symage:
+            p.strokeWeight(0)
 
             // ITERATE
             this.active[i].currentFrame++
