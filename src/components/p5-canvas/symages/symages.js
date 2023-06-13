@@ -3,6 +3,7 @@ export default [
         id: 1,
         name: 'kevin',
         note: 36,
+        // don't need frames, just calculate length of animations?
         frames: 10,
         precode: `p.fill(255, 0, 0); `,
         animation: [
@@ -42,11 +43,29 @@ export default [
         id: 2,
         name: 'sam',
         note: 38,
-        frames: 2,
-        precode: `          
-            p.fill(0, 0, 255);          
-            p.circle(150,250,100);          
-            `
+        frames: 20,
+        animation: [
+            "p.fill('rgba(100, 200, 30, 0.1)')",
+            "p.fill('rgba(100, 200, 30, 0.2)')",
+            "p.fill('rgba(100, 200, 30, 0.3)')",
+            "p.fill('rgba(100, 200, 30, 0.4)')",
+            "p.fill('rgba(100, 200, 30, 0.5)')",
+            "p.fill('rgba(100, 200, 30, 0.6)')",
+            "p.fill('rgba(100, 200, 30, 0.7)')",
+            "p.fill('rgba(100, 200, 30, 0.8)')",
+            "p.fill('rgba(100, 200, 30, 0.9)')",
+            "p.fill('rgba(100, 200, 30, 1)')", "p.fill('rgba(100, 200, 30, 0.9)')", "p.fill('rgba(100, 200, 30, 0.8)')", "p.fill('rgba(100, 200, 30, 0.7)')",
+            "p.fill('rgba(100, 200, 30, 0.6)')",
+            "p.fill('rgba(100, 200, 30, 0.5)')",
+            "p.fill('rgba(100, 200, 30, 0.4)')",
+            "p.fill('rgba(100, 200, 30, 0.3)')",
+            "p.fill('rgba(100, 200, 30, 0.2)')",
+            "p.fill('rgba(100, 200, 30, 0.1)')",
+
+        ],
+        postcode: `p.circle(200,200,200);`
+
+
     },
     {
         id: 3,
@@ -54,11 +73,10 @@ export default [
         note: 39,
         cc: 77,
         frames: 2,
-        precode: `          
-            p.fill("black");
-            p.stroke("white");
-            p.strokeWeight(this.incomingCC / 5 + 2);          
-            p.circle(p.width/2,p.height/2, this.incomingVelocity * 4 + 20);          
-            `
+        xx: true,
+        xxColor: 'red',
+        postcode: `
+        p.circle(200,200,200);`
+
     },
 ]

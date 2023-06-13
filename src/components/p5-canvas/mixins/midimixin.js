@@ -1,13 +1,51 @@
 export default {
     data() {
         return {
+            incomingKey: "",
             incomingNote: 0,
             incomingVelocity: 0,
             incomingCC: 0,
             noteTriggered: false
         }
     },
+    mounted() {
+        document.addEventListener('keyup', this.handleKeyUp);
+
+    },
+    beforeUnmount() {
+        document.removeEventListener('keyup', this.handleKeyUp);
+    },
     methods: {
+        handleKeyUp(event) {
+            if (event.key === 'q') {
+                console.log("q")
+                this.incomingKey = 'q'
+                this.incomingNote = 36,
+                    this.incomingVelocity = 122
+            }
+            if (event.key === 'w') {
+                console.log("w")
+                this.incomingKey = event.key
+
+                this.incomingNote = 37,
+                    this.incomingVelocity = 125
+            }
+            if (event.key === 'e') {
+                console.log("e")
+                this.incomingKey = event.key
+
+                this.incomingNote = 38,
+                    this.incomingVelocity = 127
+            }
+            if (event.key === 'r') {
+                console.log("r")
+                this.incomingKey = event.key
+                this.incomingCC = 40;
+                this.incomingNote = 39,
+                    this.incomingVelocity = 50
+            }
+            this.noteTriggered = !this.noteTriggered;
+        },
         initiateMidi() {
             if (navigator.requestMIDIAccess) {
                 navigator.requestMIDIAccess().then(this.onMIDISuccess, this.onMIDIFailure)
